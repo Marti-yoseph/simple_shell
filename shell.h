@@ -75,7 +75,7 @@ int _exec(char *, char **, char **);
 /* Utilities */
 char *read_line(void);
 
-size_t _strlen(char *str);
+int _strlen(char *str);
 command_t *_parser_cmd(char *, char *);
 size_t _parser_arg(char *, char **, size_t *);
 void print_char_pointer_arr(char **, size_t);
