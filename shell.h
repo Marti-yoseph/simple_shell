@@ -74,8 +74,8 @@ int _exec(char *, char **, char **);
 
 /* Utilities */
 char *read_line(void);
-
-size_t _strlen(char *str);
+char *_strtok(char *str, const char *tok);
+int _strlen(char *s);
 command_t *_parser_cmd(char *, char *);
 size_t _parser_arg(char *, char **, size_t *);
 void print_char_pointer_arr(char **, size_t);
@@ -88,9 +88,10 @@ char *_strstr(char *haystack, char *needle);
 void print_env(char **);
 char *_which(char *p_rec, char *first_arg);
 char *string_nconcat(char *s1, char *s2, unsigned int n);
-int _strcmp(char *s1, char *s2);
+int _strncmp(const char *s1, const char *s2, size_t n);
 void _exit_func(char **);
 int verif_built_comm(char *str, char **env);
+char *_strcat(char *dest, char *src);
 
 /* Error handler */
 void error_handler(char *, int);
@@ -99,5 +100,6 @@ void error_handler_set_default(int, char *);
 /* Command Utilities */
 command_t *new_cmd_node(char *);
 void add_tok_to_cmd(char *, command_t *, size_t, char *);
-
+/*envirnment*/
+extern char **environ;
 #endif
