@@ -9,7 +9,10 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include <sys/types.h>
-
+/*MACROS*/
+#define BUFSIZE 1024
+#define DELIM "\t\r\n\a"
+#define PRINTER(c) (write(STDOUT_FILENO, c, _strlen(c)))
 /**
  * struct error_msg - An structure for each error message
  *
@@ -92,6 +95,7 @@ int _strncmp(const char *s1, const char *s2, size_t n);
 void _exit_func(char **);
 int verif_built_comm(char *str, char **env);
 char *_strcat(char *dest, char *src);
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
 
 /* Error handler */
 void error_handler(char *, int);
@@ -103,3 +107,5 @@ void add_tok_to_cmd(char *, command_t *, size_t, char *);
 /*envirnment*/
 extern char **environ;
 #endif
+/*bul fun*/
+void hashtag_handle(char *buff);
