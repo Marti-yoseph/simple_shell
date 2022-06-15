@@ -51,7 +51,7 @@ int main(__attribute__((unused)) int argc, char **argv)
  *Return: 0 success -1 fail
  *
  */
-input check_builtin(char **cmd)
+int check_builtin(char **cmd)
 {
 	bul_t fun[] = {
 		{"cd", NULL},
