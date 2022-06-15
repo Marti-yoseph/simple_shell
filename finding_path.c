@@ -1,5 +1,37 @@
 #include "shell.h"
 /**
+ *path_cmd - searches for excutable cmd in $PATH
+ *@cmd: parsed Input
+ *Return: 1 failure 0 success.
+ *
+ */
+int path_cmd(char **cmd)
+{
+	char *path, *value, *cmd_path;
+	struct stat buf;
+
+	path = _getenv("PATH");
+	value = _strtok(path, ":");
+	while (value != NULL)
+	{
+		cmd_path = build(*cmd, value);
+		if (stat(cmd_path, &buf) == 0)
+		{
+			*cmd = _strdup(cmd_path);
+			free(cmd_path);
+			free(path);
+			return (0);
+		}
+		free(cmd_path);
+		value = _strtok(NULL, ":");
+	}
+	free(path);
+
+	return (1);
+}
+
+
+/**
  *build - build Command
  *@token: Excutable cmd
  *@value: Directory containing cmd
@@ -63,34 +95,4 @@ char *_getenv(char *name)
 	}
 
 	return (NULL);
-}
-/**
- *path_cmd - searches for excutable cmd in $PATH
- *@cmd: parsed Input
- *Return: 1 failure 0 success.
- *
- */
-int path_cmd(char **cmd)
-{
-	char *path, *value, *cmd_path;
-	struct stat buf;
-
-	path = _getenv("PATH");
-	value = _strtok(path, ":");
-	while (value != NULL)
-	{
-		cmd_path = build(*cmd, value);
-		if (stat(cmd_path, &buf) == 0)
-		{
-			*cmd = _strdup(cmd_path);
-			free(cmd_path);
-			free(path);
-			return (0);
-		}
-		free(cmd_path);
-		value = _strtok(NULL, ":");
-	}
-	free(path);
-
-	return (1);
 }

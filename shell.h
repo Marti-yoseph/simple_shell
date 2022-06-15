@@ -96,13 +96,6 @@ void print_number_in(int n);
 void print_error(char *line, int c, char **argv);
 void _prerror(char **argv, int c, char **cmd);
 
-/** input helpers*/
-char *get_args(char *line, int *exe_ret);
-int call_args(char **args, char **front, int *exe_ret);
-int run_args(char **args, char **front, int *exe_ret);
-int handle_args(int *exe_ret);
-int check_args(char **args);
-
 /**
  *struct bulltin - contain bultin to handle and function to excute
  *@command:pointer to char
