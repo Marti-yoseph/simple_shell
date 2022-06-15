@@ -98,10 +98,9 @@ void _prerror(char **argv, int c, char **cmd);
 
 
 /**
- * authors:WaseAlex and Martha Yosef
- * struct bulltin - contain bultin to handle and function to excute
- * @command:pointer to char
- * @fun:fun to excute when bultin true
+ *struct bulltin - contain bultin to handle and function to excute
+ *@command:pointer to char
+ *@fun:fun to excute when bultin true
  */
 
 typedef struct  bulltin
